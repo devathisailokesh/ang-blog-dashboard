@@ -13,6 +13,7 @@ export class CategoriesService {
       console.log(docRef);  
     })
     .catch(err=>{ console.log(err) })
+    
   }
 }
 
