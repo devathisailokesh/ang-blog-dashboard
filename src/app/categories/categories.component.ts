@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from '../models/category'
 
 import { CategoriesService } from '../services/categories.service';
 
@@ -8,16 +9,23 @@ import { CategoriesService } from '../services/categories.service';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+
+  categoryArray: Array<object> | undefined
   
   
   constructor( private categoryService: CategoriesService ) { }
 
   ngOnInit(): void {
+    this.categoryService.loadData().subscribe( val => {
+      console.log(val);  
+      this.categoryArray = val;
+    })
   }
 
   onSubmit(formData:any){
-    let categoryData = {
+    let categoryData: Category = {
       category: formData.value.category,
+      
     }
 
     this.categoryService.saveData(categoryData);
