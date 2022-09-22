@@ -10,9 +10,15 @@ import { CategoriesService } from '../services/categories.service';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+onEdit1(arg0: any) {
+throw new Error('Method not implemented.');
+}
 
   categoryArray: Array<any> | undefined
 Category: any;
+formCategory: string | undefined;
+formStatus: string = 'Add'
+categoryId: string | undefined;
 
 
   
@@ -32,10 +38,20 @@ Category: any;
       
     }
 
-    this.categoryService.saveData(categoryData);
+    if( this.formStatus == 'Add' ){
+      this.categoryService.saveData(categoryData);
+      formData.reset();
+     }
+     else if( this.formStatus == 'Edit'){
+      this.categoryService.updateData(this.categoryId, categoryData);
+      formData.reset();
+      this.formStatus = 'Add';
+     }
+
+    
     //let subCategoryData = {
       //subCategory: 'subCategory1'
-    }
+    
     //this.afs.collection('categories').add(categoryData).then(docRef => {
       //console.log(docRef);
         
@@ -55,6 +71,12 @@ Category: any;
    // })
       
    //.catch(err  =>console.log(err);
+  }
+   onEdit(category: string | undefined , id: any){
+    this.formCategory = category;
+    this.formStatus = 'Edit';
+    this.categoryId = id;
+   }
 
    
       
