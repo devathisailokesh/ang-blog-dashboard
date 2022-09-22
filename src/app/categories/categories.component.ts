@@ -78,6 +78,10 @@ categoryId: string | undefined;
     this.categoryId = id;
    }
 
+   onDelete(id:any){
+    this.categoryService.deleteData(id);
+   }
+
    
       
     

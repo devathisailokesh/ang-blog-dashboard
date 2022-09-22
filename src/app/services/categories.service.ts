@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵɵngDeclareClassMetadata } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
@@ -36,5 +36,11 @@ export class CategoriesService {
       this.toastr.success('Data updated Successfully..!');
     })
   }
-}
+  deleteData (id:any){
+    this.afs.collection('categories').doc(id).delete().then(docRef => {
+     this.toastr.success('Data Deleted...!');
+    })
+  }
 
+
+}
