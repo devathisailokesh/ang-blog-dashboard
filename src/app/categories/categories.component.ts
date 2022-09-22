@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Data } from '@angular/router';
 import { Category } from '../models/category'
 
 import { CategoriesService } from '../services/categories.service';
@@ -10,7 +11,10 @@ import { CategoriesService } from '../services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  categoryArray: Array<object> | undefined
+  categoryArray: Array<any> | undefined
+Category: any;
+
+
   
   
   constructor( private categoryService: CategoriesService ) { }
@@ -22,9 +26,9 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
-  onSubmit(formData:any){
-    let categoryData: Category = {
-      category: formData.value.category,
+  onSubmit(formData: any){
+    let categoryData:Category = {
+      category: formData['value'].category,
       
     }
 
