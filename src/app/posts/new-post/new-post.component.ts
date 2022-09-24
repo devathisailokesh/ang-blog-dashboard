@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-new-post',
@@ -11,9 +13,28 @@ export class NewPostComponent implements OnInit {
   imgSrc: any = './assests/placeholder-image.jpg';
   selectedImg: any;
 
-  constructor() { }
+  categories: Array<any> | undefined;
+
+  postForm: FormGroup
+
+  constructor( private categoryService: CategoriesService, private fb: FormBuilder ) {
+
+    this.postForm = this.fb.group({
+      title: [''],
+      permalink: [''],
+      expect: [''],
+      postImg: [''],
+      content: ['']
+
+    })
+
+   }
 
   ngOnInit(): void {
+    this.categoryService.loadData().subscribe(val => {
+      this.categories = val;
+
+    })
   }
 
   onTitleChanged($event:any) {
