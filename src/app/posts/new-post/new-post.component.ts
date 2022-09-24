@@ -9,6 +9,7 @@ export class NewPostComponent implements OnInit {
 
   permalink: string = '';
   imgSrc: any = './assests/placeholder-image.jpg';
+  selectedImg: any;
 
   constructor() { }
 
@@ -24,10 +25,11 @@ export class NewPostComponent implements OnInit {
   showPreview ($event:any) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      this.imgSrc = e.target.result 
+      this.imgSrc = e.target?.result 
     }
 
     reader.readAsDataURL($event.target.files[0])
+    this.selectedImg = $event.target.files[0];
 
   }
 
