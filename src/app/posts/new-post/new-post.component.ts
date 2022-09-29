@@ -12,10 +12,10 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class NewPostComponent implements OnInit {
   public get postService(): PostsService {
-    return this.postService;
+    return this._postService;
   }
   public set postService(value: PostsService) {
-    this.postService = value;
+    this._postService = value;
   }
 
   permalink: string = '';
@@ -24,7 +24,7 @@ export class NewPostComponent implements OnInit {
 
   categories: Array<any> | undefined;
 
-  postForm!: FormGroup<any> 
+  postForm!: FormGroup<any>
 
   post: any;
 
