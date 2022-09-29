@@ -8,13 +8,17 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class AllPostComponent implements OnInit {
 
+  postArray: Array<any> | undefined;
+
   constructor(private postservice: PostsService) { }
 
   ngOnInit(): void {
 
     this.postservice.loadData().subscribe(val => {
       console.log(val);
-    })
+      this.postArray = val;
+
+    });
   }
 
 }
