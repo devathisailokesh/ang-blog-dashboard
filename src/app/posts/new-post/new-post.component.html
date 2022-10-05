@@ -15,9 +15,9 @@
                     <div class="card shadow-effect">
                         <div class="card-body">
     
-                            <div class="form-group">
+                            <div class="form-group" >
                                 <label > Title </label>
-                                <input 
+                                <input  
                                 type="text" 
                                 class="form-control" 
                                 (keyup) = "onTitleChanged($event)" 
@@ -37,13 +37,11 @@
                                 type="text" 
                                 class="form-control" 
                                 [(ngModel)] = 'permalink' 
-                                name="permalink"
-                                
-                                
+                                name="permalink"                           
                                 formControlName = "permalink"
                                 [ngClass]="{'is-invalid': fc['permalink'].touched && fc['permalink'].invalid}"
-                                >
-                                <div *ngIf = "fc['permalink'].errors?.['required']">
+                                id="permalink" [disabled]="true">
+                                <div *ngIf = "fc['permalink'].errors?.['required']" >
                                     <div class="alert alert-danger" *ngIf = 'fc["permalink"].touched && fc["permalink"].invalid'> Permalink is required. </div>
                                 </div>
                             </div>
