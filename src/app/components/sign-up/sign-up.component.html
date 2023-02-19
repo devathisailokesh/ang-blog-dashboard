@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-3"></div>
+
+      <div class="col-md-6">
+          <div class="card p-5 shadow-effect bg-secondary-theme">
+              <div class="card-body">
+                 
+                  <div class="text-center">
+                      <h3 class="text-theme-primary"> Register </h3>
+                      <p> Please register using your email id to post a new blog post </p>
+                  </div>
+        <div class="formGroup form-group">
+          <input
+            type="email"
+            class="formControl"
+            placeholder="Email Address"
+            #userEmail
+            required
+          />
+        </div>
+        <div class="formGroup form-group">
+          <input
+            type="password"
+            class="formControl"
+            placeholder="Password"
+            #userPwd
+            required
+          />
+        </div>
+        <div class="formGroup form-group">
+          <input
+            type="button"
+            class="btn btn-info btn-block btn-theme"
+            value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          />
+        </div>
+        <!-- Continue with Google -->
+
+        <!-- <div class="formGroup">
+          <button  type="button" style="width:52%" class="btn btn-info btn-block btn-theme" (click)="authService.GoogleAuth()">
+            <i class="fab fa-google-plus-g" style="margin-right: 10px;"></i>
+            Continue with Google
+          </button>
+        </div> -->
+        <h6 style="display:inline;float: left; margin-top: 25px;">Already have an Account? </h6>
+        <a [routerLink]='["/login"]'><button class="btn btn-info btn-block btn-theme" style="width:40%;display: inline;float: right; margin-right: 15px;"> Back to Login </button></a>
+
+      </div>
+      
+    </div>
+  </div>

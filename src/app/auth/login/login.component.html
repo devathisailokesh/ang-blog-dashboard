@@ -52,9 +52,16 @@
                         </div>
 
                         <button class="btn btn-info btn-block btn-theme" [disabled]='loginForm.invalid' > Login </button>
-
+                        
                     </form>
-
+                    <div style="display: flex; ">
+                        <span>
+                            <h6 style="padding-top:10px;display: inline;float: left;">Don't have an account? </h6>
+                            <h6 style="padding-top:10px;display: inline;float: right;">Forgot Password? </h6>
+                            <a [routerLink]='["/forgot-password"]'><button class="btn btn-info btn-block btn-theme" style="width:40%;display: inline;float: right;"> Forgot Password </button></a>
+                            <a [routerLink]='["/register"]'><button class="btn btn-info btn-block btn-theme" style="width:40%;display: inline;float: left;"> Register </button></a>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
